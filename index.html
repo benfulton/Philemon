@@ -17,6 +17,7 @@ Released   : 20101222
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <title>The Book of Philemon</title>
 <link href="style.css" rel="stylesheet" type="text/css" media="screen" />
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
 </head>
 <body>
 <div id="wrapper">
@@ -47,7 +48,7 @@ Released   : 20101222
 						<h2 class="title"><a href="#">The Book of Philemon</a></h2>
 						<div class="entry">
 			<p>
-<span>Παῦλος</span> δέσμιος Χριστοῦ Ἰησοῦ καὶ Τιμόθεος ὁ ἀδελφὸς Φιλήμονι τῷ ἀγαπητῷ καὶ συνεργῷ ἡμῶν καὶ Ἀπφίᾳ τῇ ἀδελφῇ καὶ Ἀρχίππῳ τῳ συστρατιώτῃ ἡμῶν καὶ τῇ κατ’ οἶκον σου ἐκκλησίᾳ, χάρις ὑμῖν καὶ εἰρήνη ἀπὸ θεοῦ πατρὸς ἡμῶν καὶ κύριου Ἰησοῦ Χριστοῦ.
+Παῦλος δέσμιος Χριστοῦ Ἰησοῦ καὶ Τιμόθεος ὁ ἀδελφὸς Φιλήμονι τῷ ἀγαπητῷ καὶ συνεργῷ ἡμῶν καὶ Ἀπφίᾳ τῇ ἀδελφῇ καὶ Ἀρχίππῳ τῳ συστρατιώτῃ ἡμῶν καὶ τῇ κατ’ οἶκον σου ἐκκλησίᾳ, χάρις ὑμῖν καὶ εἰρήνη ἀπὸ θεοῦ πατρὸς ἡμῶν καὶ κύριου Ἰησοῦ Χριστοῦ.
 </p><p>
 Εὐχαριστῶ τῷ θεῷ μου πάντοτε μνείαν σου ποιούμενος ἐπὶ τῶν προσευχῶν μου, ἀκούων σου τὴν ἀγάπην καὶ τὴν πίστιν, ἣν ἔχεις εἰς τὸν κύριον Ἰησοῦν καὶ εἰς πάντας τοὺς ἁγίους, ὅπως ἡ κοινωνία τῆς πίστεως σου ἐνεργὴς γένηται ἐν ἐπιγνώσει παντὸς ἀγαθοῦ [τοῦ] ἐν ἡμῖν εἰς Χριστόν. χαρὰν γὰρ πολλὴν ἔσχον καὶ παράκλησιν ἐπὶ τῇ ἀγάπῃ σου, ὅτι τὰ σπλάγχνα τῶν ἁγίων ἀναπέπαυται διὰ σου, ἀδελφέ.
 </p><p>
@@ -64,10 +65,6 @@ Released   : 20101222
 Ἀσπαζεταί σε Ἐπαφρᾶς ὁ συναιχμάλωτος μου ἐν Χριστῷ Ἰησοῦ, 24Μᾶρκος, Ἀρίσταρχος, Δημᾶς, Λουκᾶς, οἱ συνεργοί μου. Ἡ χάρις τοῦ κυρίου Ἰησοῦ Χριστοῦ μετὰ τοῦ πνεύματος ὑμῶν.
 </p>
 				
-						</div>
-						<div class="byline">
-							<p class="meta">July 07, 2010 Posted by <a href="#">Someone</a></p>
-							<p class="links"><a href="#">Read More</a>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" title="b0x w">Comments</a></p>
 						</div>
 					</div>
 					<div style="clear: both;">&nbsp;</div>
@@ -87,8 +84,8 @@ Released   : 20101222
 							<div style="clear: both;">&nbsp;</div>
 						</li>
 						<li>
-							<h2>Aliquam tempus</h2>
-							<p>Mauris vitae nisl nec metus placerat perdiet est. Phasellus dapibus semper consectetuer hendrerit.</p>
+							<h2 id="hoverWord">Παῦλος</h2>
+							<p id="annotation">Hover over a word to display its annotation</p>
 						</li>
 					</ul>
 				</div>
@@ -99,9 +96,30 @@ Released   : 20101222
 	</div>
 	<!-- end #page -->
 	<div id="footer">
-		<p>Copyright (c) 2008 Sitename.com. All rights reserved. Design by <a href="http://www.freecsstemplates.org/"> CSS Templates</a>.</p>
+		<p>Copyright (c) 2012 Ben Fulton. All rights reserved. Design by <a href="http://www.freecsstemplates.org/"> CSS Templates</a>.</p>
 	</div>
 </div>
 <!-- end #footer -->
+<span style="display:none">
+  <span id="Παῦλος">Paul. Ends in OS.</span>
+</span>
+<script type="text/javascript">
+$(document).ready(function(){
+  $('p').each(function(index) {
+     var text = $(this).text().split(' ');
+     for( var i = 0, len = text.length; i < len; i++) {
+         text[i] = '<span>' + text[i] + '</span>';
+     }
+     $(this).html(text.join(' '));
+    });
+
+    $('span').hover(function()
+    {
+       var word = $(this).text();
+       $('#hoverWord').text(word);
+       $('#annotation').html($("#" + word).html());
+    });
+});
+</script>
 </body>
 </html>
