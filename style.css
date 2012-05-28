@@ -306,9 +306,9 @@ a:hover {
 	background: url(images/img03.jpg) no-repeat left top;
 	text-shadow: #203060 -1px 1px 2px;
 	text-align: left;
-	text-transform: uppercase;
 	letter-spacing: -.5px;
-	font-size: 1em;
+	font-size: larger;
+	font-weight: bold;
 	color: #FFFFFF;
 }
 
@@ -316,7 +316,7 @@ a:hover {
 	margin: 0 0px;
 	padding: 0px 20px 20px 20px;
 	text-align: justify;
-	color: #847F7E;
+	color: #C4BFBE;
 }
 
 #sidebar a {
@@ -371,4 +371,9 @@ a:hover {
 
 #footer a {
 	color: #847F7E;
+}
+
+.annotation
+{
+	display:none;
 }
